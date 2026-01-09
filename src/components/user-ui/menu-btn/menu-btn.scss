@@ -1,0 +1,74 @@
+@use '../../../styles/colors.scss' as *;
+@use '../../../styles/fonts.scss' as *;
+
+
+.menu-button-container {
+
+    cursor: pointer;
+    position: relative;
+    transition: all 500ms;
+    z-index: 6;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    max-height: 40px;
+    max-width: 40px;
+
+    &.open{
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    .menu-button {
+
+        height: 100%;
+        width: 100%;
+        transition: all 500ms;
+        box-sizing: border-box;
+
+        * {
+            transition: all 500ms;
+            position: relative;
+        }
+
+        #cross2
+        #cross1
+        #barBottom
+        #barMiddle
+        #barTop{
+            stroke: $black;
+        }
+
+        #cross{
+            transform-origin: 50% 50%;
+            transform: rotate(-55deg);
+            z-index: 2;
+        }
+
+        &.open{
+
+            background: none;
+            border: none;
+
+            #up,
+            #down,
+            #middle {
+                opacity: 0;
+            }
+
+            #cross{
+                transform: scale(1.5) rotate(-55deg);
+                stroke: $white;
+            }
+
+        }
+
+
+        &.closed {
+
+        }
+    }
+
+}

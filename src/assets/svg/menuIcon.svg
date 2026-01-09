@@ -1,0 +1,9 @@
+<svg width="710" height="568" viewBox="0 0 710 568" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="menu-icon-cnt">
+        <path id="cross2" d="M60 281.737H659.987" stroke="black" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+        <path id="cross1" d="M60 282.737H659.987" stroke="black" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+        <path id="barBottom" d="M60 459.837H659.987" stroke="black" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+        <path id="barMiddle" d="M60 281.737H659.987" stroke="black" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+        <path id="barTop" d="M60 100.837H660" stroke="black" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+</svg>

@@ -1,0 +1,43 @@
+.user-ui {
+    
+    z-index: 2;
+    width: 100vw;
+    top: 2dvh;
+    position: fixed;
+    overflow: visible;
+
+    header {
+        display: grid;
+        position: relative;
+        padding: 0 5vw;
+        gap: 2.5vw;
+        width: calc(99.99vw - 10vw);
+        grid-template-columns: 9fr 1fr;
+    }
+
+    .backdrop-location-selector {
+
+        position: fixed;
+        transition: all 500ms;
+        top: 0;
+        left: 0;
+        width: 100dvw;
+        height: 100dvh;
+        background-color: rgba(0, 0, 0, 0.4);
+        
+        &.closed {
+            z-index: -2;
+            pointer-events: none;
+            opacity: 0;            
+        }
+
+        &.open {
+            pointer-events: auto;
+            z-index: 0;
+            opacity: 1;            
+        }
+
+    }
+
+
+}
