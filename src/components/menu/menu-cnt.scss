@@ -3,160 +3,92 @@
 
 .menu-container {
 
-    $width: 75vw;
+    $width: 100vw;
 
-    position: fixed;
-    background: none;
-    overflow: hidden;
-    transition: transform 500ms, width 500ms;
-    top: 0;
-    right: 0;
+    transition: transform 1000ms, opacity 500ms;
     height: 99.99dvh;
     z-index: 5;
     width: $width;
+    overflow: hidden;
+    background: none;
 
-    
     &.closed {
-        width: 0;
+        opacity: 0;
         transform: translateX($width);
-
-        .menu {
-            padding: 0;
-
-            > li {
-                opacity: 0;
-            }
-
-        }
-
     }
     
     &.open {
-        transform: translateX(0vw);
-
-        .menu > li {
-            opacity: 1;
-        }
+        transform: translateX(-$width);
+        opacity: 1;
     }
 
     .menu {
 
-        background: $darkGrey950;
-        transition: all 500ms;
-        box-sizing: border-box;
-        position: absolute;
         display: flex;
         flex-flow: column nowrap;
-        align-items: flex-end;
-        justify-content: center;
+        align-items: center;
+        justify-content: flex-start;
         list-style: none;
-        padding: 0 30px;
-        margin: 0;
+        padding-top: 30px;
         gap: 30px;
         height: 100%;
-        width: $width;
-        top: 0;
-        right: 0;
-        z-index: 3;
 
-        li {
+        > li {
 
-            list-style: none;
-            text-align: end;
-            position: relative;
-            color: $white;
-            top: -120px;
             width: 100%;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+
+            > ul {
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: flex-end;
+                justify-content: center;
+                gap: 20px;
+                width: 70%;
+                > li {
+                    list-style: none;
+                }
+            }
 
             a {
 
                 text-decoration: none;
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
                 justify-content: flex-end;
                 flex-flow: row nowrap;
                 text-transform: capitalize;
+                text-align: end;
                 transition: all 500ms;
-                color: $white;
-                font-family: $font-extra;
-                font-size: 1.5rem;
-                font-weight: 100;
+                line-height: 100%;
+                letter-spacing: -0.1px;
+                font-size: 20px;
+                font-weight: 400;
+                color: $black;
+                font-family: $font-main;
 
-                &a:hover {
-
-                    gap: 2px;
-
-                    .underline {
-                        width: 10px;
-                    }
-
+                &:hover {
+                    transform: translateX(-5px);
+                    font-weight: 500;
                 }
 
             }
 
         }
 
-        .underline {
-            width: 0;
-            height: 2px;
-            margin-top: 5px;
-            background: $white;
-            transition: all 500ms;
+        .section-3-cnt {
+            background-color: $lightGrey100;
+            padding: 30px 0 50px 0;
+            flex-grow: 2;
         }
 
-        .logo-container {
-
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: flex-end;
-            justify-content: flex-end;
-            text-align: end;
-            font-family: $font-extra;
-            font-weight: 100;
-            font-size: 2rem;
-            width: 100%;
-            height: 120px;
-            gap: 20px;
-
-            .logo-menu {
-
-                display: flex;
-                align-items: end;
-                height: 100%;
-                width: 30%;
-
-                #mapFill {
-                    fill: none;
-                }
-
-                    #borderBottom {
-                    fill: $white;
-                }
-
-                #borderTop {
-                    fill: $white;
-                }
-
-                #middle-bar {
-                    stroke: $lightRed500;
-                    stroke-width: 45px;
-                    z-index: 2;
-                }
-
-                #circle {
-                    stroke: $white;
-                    fill: $darkRed500;
-                    stroke-width: 20px;
-                }
-
-                #wheat * {
-                    fill: $darkRed500;
-                    stroke: $white;
-                    stroke-width: 10px;
-                }
-
-            }
-
+        > hr {
+            width: 85%;
+            height: 1px;
+            opacity: 1;
+            background-color: $lightGrey100;
         }
 
     }

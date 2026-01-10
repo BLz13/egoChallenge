@@ -16,7 +16,9 @@ export default function MenuButton() {
 
   return (
     <>
-      <button className={`menu-button-container ${buttonClass}`} onPointerDown={handleClick} >
+      <button className={"menu-button-container"} onPointerDown={handleClick} >
+        <span className={`text-menu  ${buttonClass}`}>Menú</span>
+        <span className={`text-close  ${buttonClass}`}>Cerrar</span>
         <MenuIcon className={`menu-button ${buttonClass}`} />
       </button>
     </>
