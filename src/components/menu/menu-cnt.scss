@@ -8,9 +8,9 @@
     transition: transform 1000ms, opacity 500ms;
     height: 99.99dvh;
     z-index: 5;
-    width: $width;
     overflow: hidden;
-    background: none;
+    width: $width;
+    background: $white;
 
     &.closed {
         opacity: 0;

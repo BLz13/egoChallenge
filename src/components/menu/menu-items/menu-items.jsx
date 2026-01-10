@@ -2,8 +2,6 @@ import { PAGES } from "../../../utils/pages.js";
 
 export default function MenuItems() {
 
-    console.log(PAGES);
-
     const pages = PAGES.map((sections , i) => (
         <>
             <li className={`section-${i}-cnt`} key={`section-${i}`}>

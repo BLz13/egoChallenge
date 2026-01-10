@@ -1,16 +1,18 @@
-import React, { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import { UIStateContext } from "./uiStateContext";
 
 export default function UIStateProvider({ children }) {
   
   const [menuState, setMenuState] = useState(false);
-  const [locationState, setLocationState] = useState(false);
+
+  const [selectedTab, setSelectedTab] = useState(0);
+
+  const [selectedModel, setSelectedModel] = useState("");
 
   // Open menu AND ensure location is closed
   const openMenu = useCallback(() => {
     setMenuState(true);
-    setLocationState(false);
   }, []);
 
   const closeMenu = useCallback(() => {
@@ -21,47 +23,36 @@ export default function UIStateProvider({ children }) {
   const toggleMenu = useCallback(() => {
     setMenuState(prev => {
       const next = !prev;
-      if (next) setLocationState(false); // when opening menu, close location
       return next;
     });
   }, []);
 
-  // Open location and close menu
-  const openLocation = useCallback(() => {
-    setLocationState(true);
-    setMenuState(false);
+  const changeSelectedModel = useCallback((model) => {
+    setSelectedModel(model);
   }, []);
 
-  const closeLocation = useCallback(() => {
-    setLocationState(false);
-  }, []);
-
-  const toggleLocation = useCallback(() => {
-    setLocationState(prev => {
-      const next = !prev;
-      if (next) setMenuState(false); // when opening location, close menu
-      return next;
-    });
+  const changeSelectedTab = useCallback((i) => {
+    setSelectedTab(i);
   }, []);
 
   const value = useMemo(() => ({
     menuState,
-    locationState,
+    changeSelectedModel,
+    selectedModel,
+    changeSelectedTab,
+    selectedTab,
     openMenu,
     closeMenu,
     toggleMenu,
-    openLocation,
-    closeLocation,
-    toggleLocation,
   }), [
     menuState,
-    locationState,
+    changeSelectedModel,
+    selectedModel,
+    changeSelectedTab,
+    selectedTab,
     openMenu,
     closeMenu,
     toggleMenu,
-    openLocation,
-    closeLocation,
-    toggleLocation
   ]);
 
   return (

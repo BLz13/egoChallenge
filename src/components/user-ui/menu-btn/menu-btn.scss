@@ -10,6 +10,7 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+    justify-self: end;
     transition: all 500ms;
     z-index: 10;
     padding: 0;

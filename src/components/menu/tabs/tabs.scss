@@ -1,0 +1,31 @@
+@use '../../../styles/colors.scss' as *;
+@use '../../../styles/fonts.scss' as *;
+
+.tabs {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 100%;
+
+    .menu-tabs {
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        list-style: none;
+            border-bottom: 2px #0000 solid;
+        transition: all 0.3s ease-in-out;
+        padding: 0 20px;
+        height: 100%;
+        font-weight: 600;
+
+        &.active {
+            border-bottom: 2px $red solid;
+            color: $red;
+        }
+
+        &.hidden {
+            opacity: 0;
+            transform: translateY(70px);
+        }
+    }
+}
