@@ -5,13 +5,12 @@ import { useUIState } from '../../../hooks/context/useUIState';
 
 export default function MenuButton() {
 
-  const { menuState, toggleMenu, closeLocation } = useUIState();
+  const { menuState, toggleMenu } = useUIState();
 
   const buttonClass = menuState ? 'open' : 'closed';
 
   const handleClick = () => {
     toggleMenu();
-    closeLocation();
   };
 
   return (

@@ -2,8 +2,8 @@ import './user-ui.scss';
 
 import Logo from '../../assets/svg/logoDark.svg?react';
 import Menu from '../menu/menu-cnt';
-import MenuButton from './menu-btn/menu-btn';
-import Tabs from '../menu/tabs/tabs';
+import MenuButton from '../menu/menu-btn/menu-btn';
+import TabsLabels from '../tabs/labels/labels';
 
 export default function UserUI() {
     return (
@@ -11,7 +11,7 @@ export default function UserUI() {
 
             <header>
                 <Logo className="site-logo"/>
-                <Tabs />
+                <TabsLabels />
                 <MenuButton />
             </header>
 

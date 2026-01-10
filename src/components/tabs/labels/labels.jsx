@@ -1,9 +1,9 @@
-import './tabs.scss';
+import './labels.scss';
 
 import { TABS } from "../../../utils/tabs.js";
 import { useUIState } from '../../../hooks/context/useUIState.jsx';
 
-export default function Tabs() {
+export default function TabsLabels() {
 
     const { selectedModel, selectedTab, changeSelectedTab } = useUIState();
     

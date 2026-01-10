@@ -39,6 +39,14 @@
             display: flex;
             flex-flow: column nowrap;
             align-items: center;
+            
+            > hr {
+                width: 85%;
+                height: 1px;
+                opacity: 1;
+                margin-top: 30px;
+                background-color: $lightGrey100;
+            }
 
             > ul {
                 display: flex;
@@ -84,12 +92,6 @@
             flex-grow: 2;
         }
 
-        > hr {
-            width: 85%;
-            height: 1px;
-            opacity: 1;
-            background-color: $lightGrey100;
-        }
 
     }
 

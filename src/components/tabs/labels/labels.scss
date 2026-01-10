@@ -12,7 +12,7 @@
         cursor: pointer;
         align-items: center;
         list-style: none;
-            border-bottom: 2px #0000 solid;
+        border-bottom: 2px #0000 solid;
         transition: all 0.3s ease-in-out;
         padding: 0 20px;
         height: 100%;
@@ -25,7 +25,8 @@
 
         &.hidden {
             opacity: 0;
-            transform: translateY(70px);
+            pointer-events: none;
+            transform: translateY(75px);
         }
     }
 }
