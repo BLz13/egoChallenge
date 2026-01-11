@@ -1,0 +1,120 @@
+@use '../../../styles/fonts.scss' as *;
+@use '../../../styles/colors.scss' as *;
+
+.tab-2-cnt {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 50px;
+    padding: 50px 5vw;
+    
+
+    .model-header {
+
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 30px;
+
+        .model-img {
+            width: 100%;
+            max-height: 160px;
+            object-fit: cover;
+        }
+
+        .model-info {
+            
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 15px;
+
+            * {
+                font-family: $font-main;
+                font-weight: 600;
+            }
+
+            .model-name {
+                font-size: 20px;
+                line-height: 27px;
+                letter-spacing: 0px;
+            }
+
+            .model-title {
+                font-size: 35px;
+                line-height: 44px;
+                letter-spacing: -0.7px;
+            }
+
+            .model-description {
+                font-family: $font-main;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 27px;
+                letter-spacing: -0.1px;
+
+            }
+        }
+    }
+
+    .features-slider-cnt {
+
+        max-width: 100%;
+
+        .features-slider {
+        }
+        .feature-item {
+        }
+        .features-name {
+        }
+        .features-description {
+        }
+        .features-image {
+        }
+    }
+
+    .highlights-cnt {
+        
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 30px;
+        
+        
+        .highlight-item {
+            
+            display: grid;
+            grid-template-columns: 100%;
+            gap: 30px;
+            
+            .highlight-image {
+                max-width: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+            
+            .highlight-content {
+                
+                display: flex;
+                flex-flow: column nowrap;
+                gap: 20px;
+                line-height: 27px;
+                font-family: $font-main;
+                
+                .highlight-title {
+                    font-weight: 600;
+                    font-size: 20px;
+                    letter-spacing: -0.4px;
+
+                }
+
+                .highlight-content {
+                    font-weight: 400;
+                    font-size: 16px;
+                    letter-spacing: -0.1px;
+                    color: $darkGrey;
+
+                }
+            }
+
+        }
+    }
+
+}
