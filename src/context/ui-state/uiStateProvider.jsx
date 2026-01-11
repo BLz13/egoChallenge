@@ -23,14 +23,6 @@ export default function UIStateProvider({ children }) {
     });
   }, []);
 
-  //SELECTED MODEL
-
-  const [selectedModel, setSelectedModel] = useState("");
-
-  const changeSelectedModel = useCallback((model) => {
-    setSelectedModel(model);
-  }, []);
-  
   //TABS CONTROLS
   
   const [selectedTab, setSelectedTab] = useState(0);
@@ -39,6 +31,24 @@ export default function UIStateProvider({ children }) {
     setSelectedTab(i);
   }, []);
 
+  //SELECTED MODEL
+
+  const [selectedModel, setSelectedModel] = useState("");
+
+  const changeSelectedModel = useCallback((model) => {
+    
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    
+    setTimeout(() => {
+      setSelectedModel(model);
+      setSelectedTab(1);
+    }, 500);
+    
+  }, []);
+  
   //FILTERS CONTROLS
 
   const [sortState, setSortState] = useState(false);
@@ -153,10 +163,10 @@ export default function UIStateProvider({ children }) {
     openMenu,
     closeMenu,
     toggleMenu,
-    selectedModel,
-    changeSelectedModel,
     selectedTab,
     changeSelectedTab,
+    selectedModel,
+    changeSelectedModel,
     sortState,
     filterState,
     openSort,
@@ -177,10 +187,10 @@ export default function UIStateProvider({ children }) {
     openMenu,
     closeMenu,
     toggleMenu,
-    selectedModel,
-    changeSelectedModel,
     selectedTab,
     changeSelectedTab,
+    selectedModel,
+    changeSelectedModel,
     sortState,
     filterState,
     openSort,
