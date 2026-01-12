@@ -11,6 +11,14 @@
     grid-template-rows: 1fr;
     gap: 30px;
 
+    @media only screen and (min-width: 1001px) {        
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 30px;
+        row-gap: 50px;
+        padding-top: 50px;
+        max-width: 1400px;
+    }
+
     .model-cnt {
         width: 100%;
         display: flex;

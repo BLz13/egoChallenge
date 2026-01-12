@@ -6,13 +6,34 @@
 
     header {
 
-        display: grid;
-        position: sticky;
+        @media only screen and (max-width: 1000px) {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-template-rows: 70px 70px;
+            justify-content: space-between;
+            
+            .tabs {
+                grid-row: 2;
+                grid-column: span 2;
+                border-top: 1px $lightGrey100 solid;
+            }
+        }
+
+        @media only screen and (min-width: 1001px) {
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 50px;
+            height: 70px;
+            border-bottom: 1px $lightGrey100 solid;
+
+            .tabs {
+                flex-grow: 1;
+            }
+        }
+
         align-items: center;
-        justify-content: space-between;
+        position: sticky;
         box-sizing: content-box;
-        grid-template-columns: auto auto;
-        grid-template-rows: 70px 70px;
         width: 100%;
 
         .site-logo {
@@ -23,11 +44,6 @@
             margin-right: 5vw;
         }
 
-        .tabs {
-            grid-row: 2;
-            grid-column: span 2;
-            border-top: 1px $lightGrey100 solid;
-        }
     }
 
     aside {

@@ -2,25 +2,40 @@
 @use '../../styles/fonts.scss' as *;
 
 .menu-container {
+    
+    @media only screen and (max-width: 1000px) {
+        width: 99.99vw;
+        
+        &.closed {
+            opacity: 0;
+            transform: translateX(99.99vw);
+        }
+    
+        &.open {
+            transform: translateX(-99.99vw);
+            opacity: 1;
+        }
+    }
 
-    $width: 100vw;
+    @media only screen and (min-width: 1001px) {
+        width: 400px;
+
+        &.closed {
+            opacity: 0;
+            transform: translateX(400px);
+        }
+    
+        &.open {
+            transform: translateX(-400px);
+            opacity: 1;
+        }
+    }
 
     transition: transform 1000ms, opacity 500ms;
     height: 99.99dvh;
     z-index: 5;
     overflow: hidden;
-    width: $width;
     background: $white;
-
-    &.closed {
-        opacity: 0;
-        transform: translateX($width);
-    }
-    
-    &.open {
-        transform: translateX(-$width);
-        opacity: 1;
-    }
 
     .menu {
 

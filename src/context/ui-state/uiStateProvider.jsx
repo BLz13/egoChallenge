@@ -1,3 +1,4 @@
+import { FILTER_SEGMENT, SORT_ORDER } from "../../utils/filters";
 import { useCallback, useMemo, useState } from "react";
 
 import { UIStateContext } from "./uiStateContext";
@@ -90,54 +91,18 @@ export default function UIStateProvider({ children }) {
   //MODEL FILTERS
 
   const [filters, setFilters] = useState({
-    segment: '',
-    year: '',
-    minPrice: '',
-    maxPrice: '',
+    segment: {
+      selected: 0,
+      items: FILTER_SEGMENT
+    },
     sortBy: {
       selected: 0,
-      order: [
-        {
-          value: 'none',
-          label: 'Sin ordenar'
-        },
-        {
-          value: 'price-asc',
-          label: 'Precio: Menor a Mayor'
-        },
-        {
-          value: 'price-desc',
-          label: 'Precio: Mayor a Menor'
-        },
-        {
-          value: 'year-newest',
-          label: 'Año: Más Reciente'
-        },
-        {
-          value: 'year-oldest',
-          label: 'Año: Más Antiguo'
-        }
-      ]
+      order: SORT_ORDER
     }
   });
 
-  const handleSegmentChange = useCallback((e) => {
-    const newFilters = { ...filters, segment: e.target.value };
-    setFilters(newFilters);
-  }, [filters]);
-
-  const handleYearChange = useCallback((e) => {
-    const newFilters = { ...filters, year: e.target.value };
-    setFilters(newFilters);
-  }, [filters]);
-
-  const handleMinPriceChange = useCallback((e) => {
-    const newFilters = { ...filters, minPrice: e.target.value };
-    setFilters(newFilters);
-  }, [filters]);
-
-  const handleMaxPriceChange = useCallback((e) => {
-    const newFilters = { ...filters, maxPrice: e.target.value };
+  const handleSegmentChange = useCallback((index) => {
+    const newFilters = { ...filters, segment: { ...filters.segment, selected: index } };
     setFilters(newFilters);
   }, [filters]);
 
@@ -148,15 +113,18 @@ export default function UIStateProvider({ children }) {
   }, [filters, closeSort]);
 
   const handleResetFilters = useCallback(() => {
-    const resetFilters = {
-        segment: '',
-        year: '',
-        minPrice: '',
-        maxPrice: '',
-        sortBy: 'none'
-    };
-    setFilters(resetFilters);
+    setFilters({
+      segment: {
+        selected: 0,
+        items: FILTER_SEGMENT
+      },
+      sortBy: {
+        selected: 0,
+        order: SORT_ORDER
+      }
+    });
   }, []);
+
 
   const value = useMemo(() => ({
     menuState,
@@ -177,9 +145,6 @@ export default function UIStateProvider({ children }) {
     toggleFilters,
     filters,
     handleSegmentChange,
-    handleYearChange,
-    handleMinPriceChange,
-    handleMaxPriceChange,
     handleSortChange,
     handleResetFilters,
   }), [
@@ -201,9 +166,6 @@ export default function UIStateProvider({ children }) {
     toggleFilters,
     filters,
     handleSegmentChange,
-    handleYearChange,
-    handleMinPriceChange,
-    handleMaxPriceChange,
     handleSortChange,
     handleResetFilters,
   ]);

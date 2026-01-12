@@ -2,99 +2,130 @@
 @use '../../styles/colors.scss' as *;
 
 .features-slider {
-    position: relative;
-    overflow: visible;
+  position: relative;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  .swiper {
+    width: 100%;
+  }
+
+  /* ===== Slides ===== */
+  .swiper-slide {
     display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+    justify-content: center;
+    height: auto;
+  }
+
+  /* ===== Card ===== */
+  .feature-item {
+    width: 100%;
+    padding: 0 16px; // SAFE mobile padding
+    display: flex;
+    flex-direction: column;
     gap: 20px;
-    
-    .swiper {
-        width: 100%;
+    box-sizing: border-box;
+
+    .features-image {
+      width: 100%;
+      max-height: 300px;
+      border-radius: 10px;
+      object-fit: cover;
     }
-    
+
+    .features-name {
+      font-family: $font-main;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    .features-description {
+      font-family: $font-main;
+      font-size: 0.95rem;
+      color: $darkGrey100;
+    }
+  }
+
+  /* ===== Navigation ===== */
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: $darkGrey100;
+
+    &::after {
+      font-size: 24px;
+    }
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  /* ===== Pagination ===== */
+  .swiper-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    bottom: -30px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: $lightGrey100;
+    opacity: 1;
+
+    &-active {
+      background: $darkGrey100;
+    }
+  }
+}
+
+/* ===============================
+   Tablet & up – centered cards
+   =============================== */
+
+@media (min-width: 640px) {
+  .features-slider {
+    .swiper-wrapper {
+      justify-content: center;
+    }
+
     .swiper-slide {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      width: 320px !important;
     }
-    
+
     .feature-item {
-        display: flex;
-        flex-flow: column nowrap;
-        gap: 20px;
-        padding: 0 5vw;
-        width: 100%;
+      padding: 0;
+      max-width: 320px;
+    }
+  }
+}
 
-        .features-image {
-            width: 100%;
-            max-height: 300px;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-        
-        .features-name {
-            font-family: $font-main;
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-        
-        .features-description {
-            font-family: $font-main;
-            font-weight: 400;
-            font-size: 0.95rem;
-            color: $darkGrey100;
-        }
+/* Desktop */
+@media (min-width: 900px) {
+  .features-slider {
+    .swiper-slide {
+      width: 360px !important;
     }
 
-    /* Navigation Arrows */
-    .swiper-button-prev,
-    .swiper-button-next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10;
-        width: auto;
-        height: auto;
-        color: $darkGrey100;
-        
-        &::after {
-            font-size: 24px;
-        }
+    .feature-item {
+      max-width: 360px;
+    }
+  }
+}
 
-        @media (max-width: 768px) {
-            display: none;
-        }
+/* Large desktop */
+@media (min-width: 1400px) {
+  .features-slider {
+    .swiper-slide {
+      width: 420px !important;
     }
 
-    .swiper-button-prev {
-        left: -50px;
+    .feature-item {
+      max-width: 420px;
     }
-
-    .swiper-button-next {
-        right: -50px;
-    }
-
-    /* Pagination Dots */
-    .swiper-pagination {
-        position: relative;
-        bottom: auto;
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        gap: 8px;
-        margin-top: 20px;
-    }
-
-    .swiper-pagination-bullet {
-        width: 10px;
-        height: 10px;
-        background: $lightGrey100;
-        opacity: 1;
-        border-radius: 50%;
-
-        &.swiper-pagination-bullet-active {
-            background: $darkGrey100;
-        }
-    }
+  }
 }
