@@ -1,0 +1,48 @@
+@use '../../styles/colors.scss' as *;
+@use '../../styles/fonts.scss' as *;
+
+.loading-cnt {
+
+    height: 100%;
+    min-height: 80vh;
+    width: 100%;
+    padding-top: 50px;
+    display: grid;
+    align-content: start;
+    justify-content: center;
+    justify-items: center;
+
+    .loading-inner-cnt {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+
+        .loading-icon {
+            max-width: 100px;
+            max-height: 100px;
+
+            #loading {
+                #outer {
+                    stroke: $black;
+                     transform-origin: center;
+                    animation: loadingAnimation 2s linear infinite;
+                }
+                #inner {
+                    stroke: $red;
+                    transform-origin: center;
+                    animation: loadingAnimation 2s linear infinite reverse;
+                }
+
+                @keyframes loadingAnimation {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+            }
+        }
+    }
+}

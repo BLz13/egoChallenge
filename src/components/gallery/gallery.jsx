@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import { getModels } from "../../services/models"
 import { useUIState } from '../../hooks/context/useUIState';
+import LoadingScreen from '../loading-screen/loading';
 
 export default function Gallery() {
 
@@ -29,7 +30,7 @@ export default function Gallery() {
     }, []);
 
     if (loading) {
-        return <div>Cargando...</div>;
+        return <LoadingScreen />;
     }
 
     return (
